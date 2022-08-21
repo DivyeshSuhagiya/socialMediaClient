@@ -1,0 +1,21 @@
+.suggestion{
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.suggestion::-webkit-scrollbar {
+    width: 2px;
+}
+.suggestion::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.suggestion::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.suggestion::-webkit-scrollbar-thumb:hover {
+    background: #009eb3; 
+}

@@ -1,0 +1,13 @@
+.signup {
+    height: 100%;
+    width: 100%;
+    /* overflow: hidden; */
+}
+.signup-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--orange-color);
+}
+.signup .signup-input:focus{
+    outline: none;
+}

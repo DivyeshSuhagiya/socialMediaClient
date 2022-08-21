@@ -1,0 +1,28 @@
+.dashboard-prof{
+    height: 50%;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+}
+.dashboard-prof-bg{
+    height: 30%;
+    background-image: url('../../assets/images/pro-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px 20px 0px 0px;
+}
+.dashboard-pro-image{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    right: 35%;
+    top: 15%;
+}
+.dashboard-pro-detail{
+    text-align: center;
+    margin-top: 55px;
+}

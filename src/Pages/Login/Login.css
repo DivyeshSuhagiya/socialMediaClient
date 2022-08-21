@@ -1,0 +1,21 @@
+.login {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.login-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--orange-color);
+}
+.login .login-input:focus{
+    outline: none;
+}
+#email-error , #password-error{
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .login-form {
+        margin-top: -200px !important;
+    }
+  }

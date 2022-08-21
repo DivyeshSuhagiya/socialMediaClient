@@ -1,0 +1,27 @@
+.following-you{
+    overflow-y: scroll;
+    height: 40%;
+}
+.following-you::-webkit-scrollbar {
+    width: 2px;
+}
+.following-you::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.following-you::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.following-you::-webkit-scrollbar-thumb:hover {
+    background: #009eb3; 
+}
+.pro_image{
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    border-radius: 50%;
+    background-position: center center;
+}

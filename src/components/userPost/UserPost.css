@@ -1,0 +1,25 @@
+.user-post {
+    background-color: white;
+}
+
+.post-image {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+.heart-icon {
+    animation-name: heart-icon;
+    animation-duration: 0.5s;
+}
+
+@keyframes heart-icon {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

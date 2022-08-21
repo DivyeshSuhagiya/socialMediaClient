@@ -1,0 +1,12 @@
+
+.dashboard-right-icon:hover{
+    cursor: pointer;
+    color: #fa6132;
+    transition: 0.3s;
+}
+.dashboard-right-icon-div a{
+    color: rgb(40, 40, 40);
+}
+.dashboard-right-icon-div  .active{
+    color: #fa6132 !important;
+}
