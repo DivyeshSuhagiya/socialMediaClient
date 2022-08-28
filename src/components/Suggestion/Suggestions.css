@@ -1,10 +1,11 @@
 .suggestion{
-    height: 90%;
+    height: 93%;
     overflow-y: scroll;
 }
 
 .suggestion::-webkit-scrollbar {
     width: 2px;
+    height: 2px;
 }
 .suggestion::-webkit-scrollbar-track {
     border-radius: 10px;

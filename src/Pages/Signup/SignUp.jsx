@@ -14,7 +14,6 @@ const SignUp = () => {
 
     let obj = { firstName: "", lastName: "", email: "", mobile: "", password: "", confirmPassword: "", birthDate: '' }
     const [value, setvalue] = useState({ ...obj })
-    const [emailotp, setemailotp] = useState()
     const ChangeInput = (e) => {
         setvalue({ ...value, [e.target.name]: e.target.value })
 
@@ -26,28 +25,28 @@ const SignUp = () => {
         if ((value.firstName !== "") && (value.lastName !== "") && (value.email !== "") && (value.mobile !== "") && (value.password !== "") && (value.confirmPassword !== "") && (value.birthDate !== "")) {
             if (currUser?.email === value.email) {
                 Swal.fire(
-                    'Faied?',
+                    'Failed?',
                     'Email is already registered please try with other Email!!!',
                     'question'
                 )
             }
             if (value.mobile.length > 10 || value.mobile.length < 10) {
                 Swal.fire(
-                    'Faied?',
+                    'Failed?',
                     'Please enter only 10 digit!!!',
                     'question'
                 )
             }
             if (currUserMob?.mobile === value.mobile) {
                 Swal.fire(
-                    'Faied?',
+                    'Failed?',
                     'Mobile number is already registered please try with other Mobile No.!!!',
                     'question'
                 )
             }
             if (value.password !== value.confirmPassword) {
                 Swal.fire(
-                    'Faied?',
+                    'Failed?',
                     'Password and confirm password not match!!!',
                     'question'
                 )
@@ -79,7 +78,7 @@ const SignUp = () => {
                         <div className='col-1 d-none d-md-block'></div>
                         <div className='col-12 col-lg-5 text-center signup-name zIndex-10 d-flex justify-content-center align-items-center'>
                             <img src={logo} alt="" height="100px" />
-                            <span className='ms-2 fs-1'>SDC Media</span>
+                            <span className='ms-2 fs-1' style={{fontFamily:"Pacifico"}}>SDC Media</span>
                         </div>
                         <div className='col-12 signup-form col-lg-5 zIndex-10 p-3'>
                             <div className='bg-white  border-radius10 p-3'>

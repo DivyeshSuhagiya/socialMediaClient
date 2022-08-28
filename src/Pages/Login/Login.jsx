@@ -43,7 +43,7 @@ const Login = () => {
             }
             else {
                 Swal.fire(
-                    'Faied?',
+                    'Failed?',
                     'Password is wrong please try agin!!!',
                     'question'
                 )
@@ -51,7 +51,7 @@ const Login = () => {
         }
         else {
             Swal.fire(
-                'Faied?',
+                'Failed?',
                 'Email is not register please signup with this email!!!',
                 'question'
             )
@@ -65,7 +65,7 @@ const Login = () => {
                         <div className='col-1 d-none d-md-block'></div>
                         <div className='col-12 col-lg-5 text-center login-name zIndex-10 d-flex justify-content-center align-items-center'>
                             <img src={logo} alt="" height="100px" />
-                            <span className='ms-2 fs-1'>SDC Media</span>
+                            <span className='ms-2 fs-1' style={{fontFamily:"Pacifico"}}>SDC Media</span>
                         </div>
                         <div className='col-12 login-form col-lg-5 zIndex-10 p-3'>
                             <div className='bg-white  border-radius10 p-4'>

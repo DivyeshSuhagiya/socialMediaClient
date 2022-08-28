@@ -40,6 +40,26 @@ export const fetchuserRegister = (value) => {
     }
 }
 
+export const fetchuserUpdate = (value) => {
+    const formData = new FormData()
+    formData.append("_id" , value._id)
+    formData.append("firstName" , value.firstName)
+    formData.append("lastName" , value.lastName)
+    formData.append("email" , value.email)
+    formData.append("mobile" , value.mobile)
+    formData.append("profileImage" , value.profileImage)
+    formData.append("birthDate" , value.birthDate)
+    return (dispatch) => {
+        dispatch(userRequest());
+        axios.post("http://localhost:4000/api/user/update" , formData).then(response => {
+            const user = response.data.data
+            dispatch(userSuccess(response))
+        }).catch(error => {
+            dispatch(userFailure(error.massage))
+        })
+    }
+}
+
 
 export const fetchuserLogin= (value) => {
 

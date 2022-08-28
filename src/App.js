@@ -1,22 +1,31 @@
 import './App.css';
 import './assets/css/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/js/bootstrap.min.js";
 import Login from './Pages/Login/Login';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import SignUp from './Pages/Signup/SignUp';
 import { fetchuser } from './redux/actions/userAction';
+import { fetchuserPost } from './redux/actions/userPostAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Dashboard from './Pages/dashboard/Dashboard';
 import RingLoader from "react-spinners/RingLoader";
+import Profile from './components/profile/Profile';
+import Page404 from './Pages/page404/Page404';
+import AddPost from './Pages/addPost/AddPost';
 
 function App() {
   const user = useSelector(state => state.user.user)
+  const userPost = useSelector(state => state.userPost.userPost)
   const dispatch = useDispatch()
   const [loader, setloader] = useState(false)
 
   useEffect(() => {
     dispatch(fetchuser())
+  }, [])
+  useEffect(() => {
+    dispatch(fetchuserPost())
   }, [])
   useEffect(() => {
     setloader(true)
@@ -47,15 +56,18 @@ function App() {
                     <Route exact path="/signin"><Redirect to="/dashboard" /> </Route>
                     <Route exact path="/signup"><Redirect to="/dashboard" /></Route>
                     <Route path="/dashboard"><Dashboard /></Route>
+                    <Route exact path="/profile"><Profile /></Route>
+                    <Route exact path="/addpost"><AddPost /></Route>
                   </>
                     :
                     <>
                       <Route exact path="/signin"><Login /></Route>
                       <Route path="/signup"><SignUp /></Route>
                       <Route exact path="/dashboard"><Redirect to="/signin" /></Route>
+                      <Route exact path="/profile"><Redirect to="/signin" /></Route>
                     </>
                 }
-                
+                {/* <Route path="**"><Page404 /></Route> */}
               </BrowserRouter>
             </>
         }

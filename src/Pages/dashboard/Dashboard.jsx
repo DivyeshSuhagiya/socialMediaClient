@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Dashboard.css'
 import logo from '../../assets/images/s.png'
 import { BsSearch } from "react-icons/bs";
@@ -12,13 +12,27 @@ import { useSelector } from 'react-redux';
 
 function Dashboard() {
     const user = useSelector(state => state.user.user)
+    const userPost = useSelector(state => state.userPost.userPost)
+    const [loginUser, setloginUser] = useState()
+    useEffect(() => {
+        setloginUser(JSON.parse(localStorage.getItem("loginUser")))
+    }, [])
+    if (user.length > 0) {
+        setTimeout(() => {
+            const currUser = user?.find(x => x._id == loginUser?._id);
+            if (currUser != undefined) {
+                localStorage.setItem('loginUser', JSON.stringify(currUser));
+            }
+        }, 4000);
+    }
+
     return (
         <>
             <div className='row m-0'>
-                
+
                 {/* Left  */}
-                <div className='col-md-4 col-lg-3 d-none d-md-block d-none d-lg-block zIndex-10 px-3 py-2' style={{ height: "100vh", overflow: "hidden" , position:'fixed'}}>
-                    <div className='d-flex align-items-center' style={{height:"7%"}}>
+                <div className='col-md-4 col-lg-3 d-none d-md-block d-none d-lg-block zIndex-10 px-3 py-2' style={{ height: "100vh", overflow: "hidden", position: 'fixed' }}>
+                    <div className='d-flex align-items-center' style={{ height: "7%" }}>
                         <div><img src={logo} alt="" width="40px" /></div>
                         <div className="d-flex ms-2 w-100">
                             <input type="text" className="same-input px-2 py-1 w-100" placeholder="Search.." style={{ borderRadius: "5px 0px 0px 5px" }} />
@@ -30,10 +44,10 @@ function Dashboard() {
                     <div className='following-you pe-3'>
                         <h6>Your Followers</h6>
                         {
-                            user?.map((x,i)=> {
+                            user?.map((x, i) => {
                                 return <FollowingYou key={i} userName={x.firstName} email={x.email} profileImage={
                                     x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
-                                }/>
+                                } />
                             })
                         }
                     </div>
@@ -42,20 +56,22 @@ function Dashboard() {
                 {/* Center  */}
                 <div className='dashboard-center col-md-8 col-lg-6 zIndex-10 py-2 pb-4' style={{ height: "100vh", overflow: "scroll" }}>
                     <DashboardSearch />
-                    <UserPost />
-                    <UserPost />
-                    <UserPost />
+                    {
+                        userPost.map((y, i) => {
+                            return <UserPost key={i} userPost={y} />
+                        })
+                    }
                 </div>
 
                 {/* Right  */}
-                <div className='col-3 d-none d-lg-block zIndex-10 py-2' style={{ height: "100vh", overflow: "hidden" , position:'fixed' , right:0}}>
+                <div className='col-3 d-none d-lg-block zIndex-10 py-2' style={{ height: "100vh", overflow: "hidden", position: 'fixed', right: 0 }}>
                     <DashboardRightIcon />
 
                     <Suggestions />
-                    
+
                 </div>
 
-                <div className='bottom-menu position-fixed px-4 py-2 bg-white d-block d-md-none' style={{zIndex:99 , bottom:"0px" , boxShadow:"0px 5px 5px 5px gray"}}>
+                <div className='bottom-menu position-fixed px-4 py-2 bg-white d-block d-md-none' style={{ zIndex: 99, bottom: "0px", boxShadow: "0px 5px 5px 5px gray" }}>
                     <DashboardRightIcon />
                 </div>
             </div>
