@@ -1,13 +1,14 @@
 import React from 'react'
 import './FollowingYou.css'
+import {NavLink} from 'react-router-dom'
 function FollowingYou(props) {
     return (
         <>
             <div className='d-flex align-items-center justify-content-between my-2'>
                 <div className='d-flex align-items-center'>
-                    <div className='pro_image' style={{backgroundImage:`url(profileImage/${props.profileImage})`}}></div>
+                    <NavLink to={`/otheruser/${props.id}`} className='cursor-pointer'><div className='pro_image' style={{backgroundImage:`url(profileImage/${props.profileImage})`}}></div></NavLink>
                     <div className='ps-2'>
-                        <h6 className='text-color m-0' style={{ fontSize: '13px', whiteSpace:"nowrap" }}>{props.userName}</h6>
+                    <NavLink to={`/otheruser/${props.id}`} className='cursor-pointer text-decoration-none'><h6 className='text-color m-0' style={{ fontSize: '13px', whiteSpace:"nowrap" }}>{props.userName}</h6></NavLink>
                         <p className='p' style={{ fontSize: '12px' , width:"100px", overflow:"hidden",textOverflow: "ellipsis" }}>{props.email}</p>
                     </div>
                 </div>

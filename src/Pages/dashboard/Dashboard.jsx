@@ -8,7 +8,8 @@ import DashboardSearch from '../../components/dashboardSearch/DashboardSearch';
 import UserPost from '../../components/userPost/UserPost';
 import DashboardRightIcon from '../../components/dashboardRightIcon/DashboardRightIcon';
 import Suggestions from '../../components/Suggestion/Suggestions';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchuserPost } from '../../redux/actions/userPostAction';
 
 function Dashboard() {
     const user = useSelector(state => state.user.user)
@@ -45,7 +46,7 @@ function Dashboard() {
                         <h6>Your Followers</h6>
                         {
                             user?.map((x, i) => {
-                                return <FollowingYou key={i} userName={x.firstName} email={x.email} profileImage={
+                                return <FollowingYou key={i} id={x._id} userName={x.firstName} email={x.email} profileImage={
                                     x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
                                 } />
                             })
@@ -55,10 +56,12 @@ function Dashboard() {
 
                 {/* Center  */}
                 <div className='dashboard-center col-md-8 col-lg-6 zIndex-10 py-2 pb-4' style={{ height: "100vh", overflow: "scroll" }}>
-                    <DashboardSearch />
+                    {/* <DashboardSearch /> */}
                     {
-                        userPost.map((y, i) => {
-                            return <UserPost key={i} userPost={y} />
+                        userPost?.map((y, i) => {
+                            if ((loginUser != undefined)) {
+                                return <UserPost key={i} userPost={y} isLike={(y?.like?.find(x => x?.userId == loginUser?._id)?.isLike) == true} />
+                            }
                         })
                     }
                 </div>

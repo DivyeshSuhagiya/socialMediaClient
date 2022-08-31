@@ -1,0 +1,144 @@
+.profile-center{
+    overflow-y: scroll;
+}
+.profile-center::-webkit-scrollbar {
+    width: 0px;
+}
+
+.profile-image-div{
+    width: 40%;
+    height: 300px;
+}
+.profile-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.profile-discription{
+    width: 60%;
+    height: 300px;
+}
+.posted-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 40vh;
+}
+.profile-detail{
+    width: 280px;
+}
+.logout-btn{
+    transition: 0.3s;
+    border: 1px solid var(--orange-color);
+    color: var(--orange-color);
+    background-image: none;
+    background-color: transparent;
+}
+.logout-btn-hover:hover
+{
+    background-image: linear-gradient(90deg , #fa6132 , #ffbc35);
+    border: none;
+    color: white;
+    outline: none;
+}
+
+.profile {
+    width: 100%;
+}
+.profile-input:focus{
+    outline: none;
+}
+
+
+@media (min-width: 0px) and (max-width:400px) {
+    .posted-image{
+        height: 80px;
+    }
+    .profile-center{
+        overflow-y: scroll !important;
+    }
+    .profile-detail{
+        width: 100%;
+    }
+    .profile-image{
+        width: 100px;
+        height: 100px;
+    }
+    .profile-image-div{
+        width: 30%;
+    }
+    .profile-discription{
+        width: 70%;
+    }
+    .userName{
+        font-size: 22px;
+    }
+}
+@media (min-width: 400px) and (max-width:576px) {
+    .posted-image{
+        height: 120px;
+    }
+    .profile-image{
+        width: 120px;
+        height: 120px;
+    }
+    .profile-detail{
+        width: 100%;
+    }
+    .profile-image-div{
+        width: 30%;
+    }
+    .profile-discription{
+        width: 70%;
+    }
+}
+
+@media (min-width: 576px) and (max-width:650px) {
+    .posted-image{
+        width: 100%;
+        height: 180px;
+    }
+    .profile-discription{
+        width: 70%;
+    }
+}
+
+@media (min-width: 650px) and (max-width:768px) {
+    .posted-image{
+        height: 200px;
+    }
+}
+
+@media (min-width: 768px) and (max-width:850px) {
+    .posted-image{
+        height: 210px;
+    }
+}   
+@media (min-width: 850px) and (max-width:992px) {
+    .posted-image{
+        height: 230px;
+    }
+}
+@media (min-width:992px) and (max-width:1024px) {
+    .posted-image{
+        height: 200px;
+    }
+}
+@media (min-width:1024px) and (max-width:1100px) {
+    .posted-image{
+        height: 180px;
+    }
+}
+@media (min-width:1100px) and (max-width:1400px) {
+    .posted-image{
+        height: 230px;
+    }
+}
+@media (min-width:1400px) {
+    .posted-image{
+        height: 40vh;
+    }
+}

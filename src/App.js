@@ -14,6 +14,7 @@ import RingLoader from "react-spinners/RingLoader";
 import Profile from './components/profile/Profile';
 import Page404 from './Pages/page404/Page404';
 import AddPost from './Pages/addPost/AddPost';
+import OtherUserProfile from './Pages/OtherUserProfile/OtherUserProfile';
 
 function App() {
   const user = useSelector(state => state.user.user)
@@ -47,24 +48,27 @@ function App() {
             <>
               <div className='blur' style={{ top: '40%' }}></div>
               <div className='blur' style={{ right: "50px" }}></div>
-              <div className='blur' style={{top:"350px" , right : "400px" , backgroundColor:"#e8886d"}}></div>
+              <div className='blur' style={{ top: "350px", right: "400px", backgroundColor: "#e8886d" }}></div>
               <BrowserRouter>
-              <Route exact path="/"><Redirect to="/signin" /></Route>
+                <Route exact path="/"><Redirect to="/signin" /></Route>
                 {
                   localStorage.getItem("loginUser") ?
-                  <>
-                    <Route exact path="/signin"><Redirect to="/dashboard" /> </Route>
-                    <Route exact path="/signup"><Redirect to="/dashboard" /></Route>
-                    <Route path="/dashboard"><Dashboard /></Route>
-                    <Route exact path="/profile"><Profile /></Route>
-                    <Route exact path="/addpost"><AddPost /></Route>
-                  </>
+                    <>
+                      <Route exact path="/signin"><Redirect to="/dashboard" /> </Route>
+                      <Route exact path="/signup"><Redirect to="/dashboard" /></Route>
+                      <Route path="/dashboard"><Dashboard /></Route>
+                      <Route exact path="/profile"><Profile /></Route>
+                      <Route exact path="/addpost"><AddPost /></Route>
+                      <Route exact path="/otheruser/:id"><OtherUserProfile /></Route>
+                    </>
                     :
                     <>
                       <Route exact path="/signin"><Login /></Route>
                       <Route path="/signup"><SignUp /></Route>
                       <Route exact path="/dashboard"><Redirect to="/signin" /></Route>
                       <Route exact path="/profile"><Redirect to="/signin" /></Route>
+                      <Route exact path="/otheruser/:id"><Redirect to="/signin" /></Route>
+
                     </>
                 }
                 {/* <Route path="**"><Page404 /></Route> */}

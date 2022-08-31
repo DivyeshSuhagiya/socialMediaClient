@@ -58,6 +58,13 @@ function AddPost() {
                 window.location.href = "/dashboard"
             }, 1500);
         }
+        else{
+            Swal.fire(
+                'Failed?',
+                'Image not selected please try agin!!!',
+                'question'
+            )
+        }
         setvalue({ ...obj })
     }
     return (

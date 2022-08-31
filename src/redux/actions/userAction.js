@@ -6,7 +6,7 @@ import { USER_REQUEST, USER_SUCCESS, USER_FAILURE } from "../types/type";
 export const fetchuser = () => {
     return (dispatch) => {
         dispatch(userRequest());
-        axios.get("http://localhost:4000/api/user/get" ).then(response => {
+        axios.get("http://localhost:4000/api/user/get").then(response => {
             const user = response.data.data
             dispatch(userSuccess(user))
         }).catch(error => {
@@ -31,7 +31,7 @@ export const fetchuserRegister = (value) => {
     // firstName: "", lastName: "", email: "", mobile: "", password: "", confirmPassword: "", birthDate:
     return (dispatch) => {
         dispatch(userRequest());
-        axios.post("http://localhost:4000/api/user/register" , value).then(response => {
+        axios.post("http://localhost:4000/api/user/register", value).then(response => {
             const user = response.data.data
             dispatch(userSuccess(response))
         }).catch(error => {
@@ -42,18 +42,20 @@ export const fetchuserRegister = (value) => {
 
 export const fetchuserUpdate = (value) => {
     const formData = new FormData()
-    formData.append("_id" , value._id)
-    formData.append("firstName" , value.firstName)
-    formData.append("lastName" , value.lastName)
-    formData.append("email" , value.email)
-    formData.append("mobile" , value.mobile)
-    formData.append("profileImage" , value.profileImage)
-    formData.append("birthDate" , value.birthDate)
+    formData.append("_id", value._id)
+    formData.append("firstName", value.firstName)
+    formData.append("lastName", value.lastName)
+    formData.append("email", value.email)
+    formData.append("mobile", value.mobile)
+    formData.append("profileImage", value.profileImage)
+    formData.append("birthDate", value.birthDate)
     return (dispatch) => {
         dispatch(userRequest());
-        axios.post("http://localhost:4000/api/user/update" , formData).then(response => {
-            const user = response.data.data
-            dispatch(userSuccess(response))
+        axios.post("http://localhost:4000/api/user/update", formData).then(() => {
+            axios.get("http://localhost:4000/api/user/get").then(response => {
+                const user = response.data.data
+                dispatch(userSuccess(user))
+            })
         }).catch(error => {
             dispatch(userFailure(error.massage))
         })
@@ -61,11 +63,11 @@ export const fetchuserUpdate = (value) => {
 }
 
 
-export const fetchuserLogin= (value) => {
+export const fetchuserLogin = (value) => {
 
     return (dispatch) => {
         dispatch(userRequest());
-        axios.post("http://localhost:4000/api/user/login" , value).then(response => {
+        axios.post("http://localhost:4000/api/user/login", value).then(response => {
             const user = response.data.userInfo
             dispatch(userSuccess(response))
         }).catch(error => {

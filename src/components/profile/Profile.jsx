@@ -15,8 +15,7 @@ function Profile() {
     const userPost = useSelector(state => state.userPost.userPost)
     const [count, setcount] = useState(0)
     const [loginUser, setloginUser] = useState()
-    const ref = useRef();
-    const params = useParams();
+    const ref = useRef(); 
     useEffect(() => {
         setloginUser(JSON.parse(localStorage.getItem("loginUser")))
     }, [])

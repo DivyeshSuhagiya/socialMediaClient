@@ -14,7 +14,7 @@ function Suggestions() {
                 <h6>Suggestions for you</h6>
                 {
                     user?.map((x,i)=> {
-                        return <FollowingYou key={i} userName={x.firstName} email={x.email} profileImage={
+                        return <FollowingYou key={i} id={x._id} userName={x.firstName} email={x.email} profileImage={
                             x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
                         }/>
                     })

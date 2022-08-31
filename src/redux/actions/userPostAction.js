@@ -58,7 +58,21 @@ export const fetchuserPostAdd = (value) => {
         })
     }
 }
+export const fetchuserPostLike = (value) => {
 
+    return (dispatch) => {
+        dispatch(userPostRequest());
+        axios.put("http://localhost:4000/api/userPost/like" , value ).then((response) => {
+            console.log(response)
+            axios.get("http://localhost:4000/api/userPost/get" ).then(response => {
+            const user = response.data.data
+            dispatch(userPostSuccess(user))
+        })
+        }).catch(error => {
+            dispatch(userPostFailure(error.massage))
+        })
+    }
+}
 export const userPostRequest = () => {
     return {
         type: USER_POST_REQUEST
