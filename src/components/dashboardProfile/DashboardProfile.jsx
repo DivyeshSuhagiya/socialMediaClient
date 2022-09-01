@@ -3,7 +3,7 @@ import './DashboardProfile.css'
 import avatar from '../../assets/images/avatar.jpeg'
 import { NavLink } from 'react-router-dom'
 
-function DashboardProfile() {
+function DashboardProfile(props) {
     const [loginUser, setloginUser] = useState()
     useEffect(() => {
         setloginUser(JSON.parse(localStorage.getItem("loginUser")))
@@ -22,7 +22,7 @@ function DashboardProfile() {
                 </div>
                 <div className='border-bottom d-flex justify-content-center py-2'>
                     <div className='border-right pe-4'>
-                        <h6 className='text-color my-1'>1289</h6>
+                        <h6 className='text-color my-1'>{props.followers}</h6>
                         <p className='p pb-2'>Followers</p>
                     </div>
                     <div className='ps-4'>

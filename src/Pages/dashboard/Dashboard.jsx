@@ -26,7 +26,11 @@ function Dashboard() {
             }
         }, 4000);
     }
-
+    const Me = user?.find(x => x?._id === loginUser?._id)
+    const array = [];
+    Me?.follower?.filter(x => {
+        array.push(x.userId);
+    })
     return (
         <>
             <div className='row m-0'>
@@ -40,13 +44,14 @@ function Dashboard() {
                             <span className="input-group-text same-bgcolor cursor-pointer"><BsSearch /></span>
                         </div>
                     </div>
-                    <DashboardProfile />
+                    <DashboardProfile followers={user.filter(x => array.includes(x._id)).length}/>
 
                     <div className='following-you pe-3'>
                         <h6>Your Followers</h6>
                         {
-                            user?.map((x, i) => {
-                                return <FollowingYou key={i} id={x._id} userName={x.firstName} email={x.email} profileImage={
+                            
+                            user.filter(x => array.includes(x._id))?.map((x, i) => {
+                                return <FollowingYou key={i} other={x} user={x} id={x._id} userName={x.firstName} email={x.email} profileImage={
                                     x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
                                 } />
                             })

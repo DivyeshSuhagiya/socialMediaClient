@@ -76,6 +76,65 @@ export const fetchuserLogin = (value) => {
     }
 }
 
+export const followRequest = (value) => {
+    return (dispatch) => {
+        dispatch(userRequest());
+        axios.put("http://localhost:4000/api/user/followRequest" , value ).then((response) => {
+            console.log(response)
+            axios.get("http://localhost:4000/api/user/get" ).then(response => {
+            const user = response.data.data
+            dispatch(userSuccess(user))
+        })
+        }).catch(error => {
+            dispatch(userFailure(error.massage))
+        })
+    }
+}
+
+export const followRequestAccept = (value) => {
+    return (dispatch) => {
+        dispatch(userRequest());
+        axios.put("http://localhost:4000/api/user/followAccept" , value ).then((response) => {
+            console.log(response)
+            axios.get("http://localhost:4000/api/user/get" ).then(response => {
+            const user = response.data.data
+            dispatch(userSuccess(user))
+        })
+        }).catch(error => {
+            dispatch(userFailure(error.massage))
+        })
+    }
+}
+export const followRequestDelete = (value) => {
+    return (dispatch) => {
+        dispatch(userRequest());
+        axios.put("http://localhost:4000/api/user/followDelete" , value ).then((response) => {
+            console.log(response)
+            axios.get("http://localhost:4000/api/user/get" ).then(response => {
+            const user = response.data.data
+            dispatch(userSuccess(user))
+        })
+        }).catch(error => {
+            dispatch(userFailure(error.massage))
+        })
+    }
+}
+
+export const unfollow = (value) => {
+    return (dispatch) => {
+        dispatch(userRequest());
+        axios.put("http://localhost:4000/api/user/unfollow" , value ).then((response) => {
+            console.log(response)
+            axios.get("http://localhost:4000/api/user/get" ).then(response => {
+            const user = response.data.data
+            dispatch(userSuccess(user))
+        })
+        }).catch(error => {
+            dispatch(userFailure(error.massage))
+        })
+    }
+}
+
 // export const fetchuserActivationCode= (emailOtp ,value) => {
 
 //     return (dispatch) => {

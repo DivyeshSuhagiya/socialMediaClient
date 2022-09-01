@@ -15,6 +15,7 @@ import Profile from './components/profile/Profile';
 import Page404 from './Pages/page404/Page404';
 import AddPost from './Pages/addPost/AddPost';
 import OtherUserProfile from './Pages/OtherUserProfile/OtherUserProfile';
+import Notification from './Pages/notification/Notification';
 
 function App() {
   const user = useSelector(state => state.user.user)
@@ -60,6 +61,7 @@ function App() {
                       <Route exact path="/profile"><Profile /></Route>
                       <Route exact path="/addpost"><AddPost /></Route>
                       <Route exact path="/otheruser/:id"><OtherUserProfile /></Route>
+                      <Route exact path="/notification"><Notification /></Route>
                     </>
                     :
                     <>
@@ -68,6 +70,7 @@ function App() {
                       <Route exact path="/dashboard"><Redirect to="/signin" /></Route>
                       <Route exact path="/profile"><Redirect to="/signin" /></Route>
                       <Route exact path="/otheruser/:id"><Redirect to="/signin" /></Route>
+                      <Route exact path="/notification"><Redirect to="/signin" /></Route>
 
                     </>
                 }
