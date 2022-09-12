@@ -21,7 +21,7 @@ function Notification() {
         array1.push(x._id)
     })
     const mainArray = array1.filter(x => !array.includes(x))
-    console.log(user.filter(x => mainArray.includes(x._id)).filter(x => x._id !== loginUser?._id))
+    // console.log(user.filter(x => mainArray.includes(x._id)).filter(x => x._id !== loginUser?._id))
     return (
         <>
             <div className='row m-0 profile-center' >

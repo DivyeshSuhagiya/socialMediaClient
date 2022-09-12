@@ -22,6 +22,11 @@ function UserPost(props) {
     useEffect(() => {
         setlikeCount(props.isLike)
     }, [])
+    useEffect(() => {
+        setTimeout(() => {
+            seticonDisplay("d-none")
+        }, 1000)
+    }, [])
 
     const [iconDisplay, seticonDisplay] = useState("d-block")
     const like = (postId, userId) => {
@@ -46,7 +51,7 @@ function UserPost(props) {
         seticonDisplay("d-block")
         setTimeout(() => {
             seticonDisplay("d-none")
-        }, 1200)
+        }, 1000)
         const value = { _id: postId, userId: userId, isLike: true }
         if (userId != undefined) {
             dispatch(fetchuserPostLike(value))
@@ -76,9 +81,9 @@ function UserPost(props) {
                     {
                         likeCount === true ?
                             <>
-                                {/* <div style={{ width: "100px", height: "100px" }}>
+                                <div style={{ width: "100px", height: "100px" }}>
                                     <BsHeartFill color="white" size="100%" className={iconDisplay + " " + "heart-icon"} />
-                                </div> */}
+                                </div>
                             </>
                             :
                             ""

@@ -79,7 +79,7 @@ export const fetchuserLogin = (value) => {
 export const followRequest = (value) => {
     return (dispatch) => {
         dispatch(userRequest());
-        axios.put("http://localhost:4000/api/user/followRequest" , value ).then((response) => {
+        axios.post("http://localhost:4000/api/user/followRequest" , value ).then((response) => {
             console.log(response)
             axios.get("http://localhost:4000/api/user/get" ).then(response => {
             const user = response.data.data
@@ -94,7 +94,7 @@ export const followRequest = (value) => {
 export const followRequestAccept = (value) => {
     return (dispatch) => {
         dispatch(userRequest());
-        axios.put("http://localhost:4000/api/user/followAccept" , value ).then((response) => {
+        axios.post("http://localhost:4000/api/user/followAccept" , value ).then((response) => {
             console.log(response)
             axios.get("http://localhost:4000/api/user/get" ).then(response => {
             const user = response.data.data
@@ -108,7 +108,7 @@ export const followRequestAccept = (value) => {
 export const followRequestDelete = (value) => {
     return (dispatch) => {
         dispatch(userRequest());
-        axios.put("http://localhost:4000/api/user/followDelete" , value ).then((response) => {
+        axios.delete("http://localhost:4000/api/user/followDelete" , value ).then((response) => {
             console.log(response)
             axios.get("http://localhost:4000/api/user/get" ).then(response => {
             const user = response.data.data
@@ -123,7 +123,7 @@ export const followRequestDelete = (value) => {
 export const unfollow = (value) => {
     return (dispatch) => {
         dispatch(userRequest());
-        axios.put("http://localhost:4000/api/user/unfollow" , value ).then((response) => {
+        axios.post("http://localhost:4000/api/user/unfollow" , value ).then((response) => {
             console.log(response)
             axios.get("http://localhost:4000/api/user/get" ).then(response => {
             const user = response.data.data
