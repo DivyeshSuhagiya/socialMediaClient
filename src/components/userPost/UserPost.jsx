@@ -34,16 +34,20 @@ function UserPost(props) {
         const value = { _id: postId, userId: userId, isLike: !likeCount }
         setTimeout(() => {
             if (userId != undefined) {
-            dispatch(fetchuserPostLike(value))
+                dispatch(fetchuserPostLike(value))
             }
         }, 500);
-        iconDisplay === "d-block" ?
-            setTimeout(() => {
-                seticonDisplay("d-none")
-            }, 1200)
-            : seticonDisplay("d-block")
+        // iconDisplay === "d-block" ?
+        //     setTimeout(() => {
+        //         seticonDisplay("d-none")
+        //     }, 1200)
+        //     : seticonDisplay("d-block")
+        seticonDisplay("d-block")
         setTimeout(() => {
-        }, 2000);
+            seticonDisplay("d-none")
+        }, 1200)
+        // setTimeout(() => {
+        // }, 2000);
     }
     const DoubleClicklike = (postId, userId) => {
         setlikeCount(true)
@@ -60,6 +64,7 @@ function UserPost(props) {
     const mainUserName = user.find(x => x._id == props.userPost?.userId)
     const profileImage = mainUserName?.profileImage.split('profileImage\\')[1];
 
+
     return (
         <>
             <div className='user-post border-radius10 my-2 p-3'>
@@ -67,7 +72,7 @@ function UserPost(props) {
                     {/* <img src={`profileImage/${profileImage}`} alt="" width="45px" height="45px" className='border-radius50' /> */}
                     {
                         mainUserName?.profileImage ?
-                        <NavLink to={`otheruser/${mainUserName?._id}`} className='text-decoration-none'><div className='profile-image' style={{ backgroundImage: `url(profileImage/${profileImage})`, width: "45px", height: "45px" }}></div></NavLink>
+                            <NavLink to={`otheruser/${mainUserName?._id}`} className='text-decoration-none'><div className='profile-image' style={{ backgroundImage: `url(profileImage/${profileImage})`, width: "45px", height: "45px" }}></div></NavLink>
                             :
                             <NavLink to={`otheruser/${mainUserName?._id}`} className='text-decoration-none'><div className='profile-image' style={{ backgroundImage: `url(profileImage/avatar.png)`, width: "45px", height: "45px" }}></div></NavLink>
 
@@ -100,7 +105,7 @@ function UserPost(props) {
                     <BsChatSquareText size={24} />
                     <BsCursor size={24} />
                 </div>
-                <p className='p' style={{ fontSize: "12px" }}>300 Likes</p>
+                <p className='p' style={{ fontSize: "12px" }}>{props?.userPost?.like?.length} Likes</p>
                 <p className='p'>{props.userPost?.discription}</p>
             </div>
         </>

@@ -41,7 +41,7 @@ function Profile() {
     const imageLoad = async (image) => {
         let f = await toBase64(image)
         setselectedImage(f);
-        console.log(value);
+        // console.log(value);
     }
     const SaveData = () => {
         dispatch(fetchuserUpdate(value))

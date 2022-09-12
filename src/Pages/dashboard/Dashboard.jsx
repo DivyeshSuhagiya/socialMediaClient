@@ -50,7 +50,12 @@ function Dashboard() {
                         <h6>Your Followers</h6>
                         {
                             
-                            user.filter(x => array.includes(x._id))?.map((x, i) => {
+                            // user.filter(x => array.includes(x._id))?.map((x, i) => {
+                            //     return <FollowingYou key={i} other={x} user={x} id={x._id} userName={x.firstName} email={x.email} profileImage={
+                            //         x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
+                            //     } />
+                            // })
+                            user?.map((x, i) => {
                                 return <FollowingYou key={i} other={x} user={x} id={x._id} userName={x.firstName} email={x.email} profileImage={
                                     x?.profileImage ? x?.profileImage?.split('profileImage\\')[1] : "avatar.png"
                                 } />

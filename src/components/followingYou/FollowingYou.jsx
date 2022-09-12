@@ -27,7 +27,7 @@ function FollowingYou(props) {
         array1.push(x._id)
     })
     // console.log(array1.filter(x => !array.includes(x)));
-    console.log(otherUserRequestMe)
+    // console.log(otherUserRequestMe)
     const followRequestFun = (_id) => {
         // setvalue({...value , _id : _id})
         value._id = _id;
