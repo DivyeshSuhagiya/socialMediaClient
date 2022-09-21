@@ -30,7 +30,7 @@ function DashboardProfile(props) {
                         <p className='p pb-2'>Following</p>
                     </div>
                 </div>
-                <NavLink to='/profile' style={{ textDecoration: "none" }}><h5 className='m-0 mt-2 fw-bold orange-color cursor-pointer' style={{ fontSize: "18px" }}>My Profile</h5></NavLink>
+                <NavLink to='/profile' style={{ textDecoration: "none" }}><h5 className='m-0 mt-3 fw-bold orange-color cursor-pointer' style={{ fontSize: "18px" }}>My Profile</h5></NavLink>
             </div>
         </div>
         </>
