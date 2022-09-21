@@ -129,7 +129,7 @@ function Profile() {
                             <p className='userName display-6' style={{ fontWeight: '100', whiteSpace: "nowrap" }}>{loginUser?.firstName} {loginUser?.lastName}</p>
                             <div className='profile-detail d-flex justify-content-between align-items-center text-center mt-3' >
                                 <div>
-                                    <h6>12</h6>
+                                    <h6>{userAllPost?.length}</h6>
                                     <span>Posts</span>
                                 </div>
                                 <div>
@@ -147,7 +147,7 @@ function Profile() {
                                     loginUser?.discription ?
                                         <p className='p'></p>
                                         :
-                                        <p className='p'>---------</p>
+                                        <p className='p w-50 mt-1'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo dignissimos, asperiores tenetur natus ipsam ad.</p>
                                 }
 
                             </div>
@@ -161,12 +161,22 @@ function Profile() {
                         <h6 className='py-2 text-center' style={{ backgroundColor: "white" }}><BsGrid3X3 size={15} /> <span className='ps-2'>POSTS</span></h6>
 
                         <div className='row g-3'>
-                            {
-                                userAllPost.map((x, i) => {
-                                    return <div className='col-4' key={i}>
-                                        <div className='posted-image' style={{ backgroundImage: `url(userPostImage/${x.userPostImage.split('userPostImage\\')[1]})` }}></div>
-                                    </div>
-                                })
+                        {
+                                userAllPost.length > 0 ?
+                                    userAllPost.map((x, i) => {
+                                        return <div className='col-4' key={i}>
+                                            <div className='posted-image' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/userPostImage/${x.userPostImage.split('userPostImage\\')[1]})` }}></div>
+                                        </div>
+                                    })
+                                    :
+                                    <>
+                                        <div>
+                                            <div className='border-radius50 mx-auto mt-5 d-flex justify-content-center align-items-center' style={{ width: "90px", height: "90px", border: "1px solid black" }}>
+                                                <BsCamera size={40}/>
+                                            </div>
+                                            <h6 className='text-center mt-2'>No Postes Yet</h6>
+                                        </div>
+                                    </>
                             }
                         </div>
                     </div>

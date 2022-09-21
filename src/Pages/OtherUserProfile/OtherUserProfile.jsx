@@ -50,7 +50,7 @@ function OtherUserProfile() {
                             <p className='userName display-6' style={{ fontWeight: '100', whiteSpace: "nowrap" }}>{mainUser?.firstName} {mainUser?.lastName}</p>
                             <div className='profile-detail d-flex justify-content-between align-items-center text-center mt-3' >
                                 <div>
-                                    <h6>12</h6>
+                                    <h6>{userAllPost?.length}</h6>
                                     <span>Posts</span>
                                 </div>
                                 <div>
@@ -63,7 +63,13 @@ function OtherUserProfile() {
                                 </div>
                             </div>
                             <div className='mt-3 overflow-hidden'>
-                                <h6 className='m-0'>Your Discription</h6>
+                            <h6 className='m-0'>Discription</h6>
+                                {
+                                    mainUser?.discription ?
+                                        <p className='p'></p>
+                                        :
+                                        <p className='p w-50 mt-1'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo dignissimos, asperiores tenetur natus ipsam ad.</p>
+                                }
 
                             </div>
                             <div className='position-absolute bottom-0 d-flex justify-content-between' style={{ width: "90%" }}>
